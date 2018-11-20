@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>StockTrader v0.1</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>stock.png</normaloff>stock.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>311</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>주문</string>
+    </property>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>211</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout">
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>8</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>코드</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="text_ItemCode">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>유형</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="combo_OrderType">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>신규매수</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>신규매도</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>매수취소</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>매도취소</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>호가</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="combo_OrderQuote">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <item>
+         <property name="text">
+          <string>지정가</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>시장가</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>수량</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QSpinBox" name="number_OrderQty">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>단가</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QSpinBox" name="number_OrderPrice">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximum">
+         <number>1000000</number>
+        </property>
+        <property name="singleStep">
+         <number>10</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QPushButton" name="button_Order">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>190</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>현금주문</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_ItemSearch">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>20</y>
+       <width>75</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>조회</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>551</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>계좌정보</string>
+    </property>
+    <widget class="QTableWidget" name="table_HaveItemList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>531</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>85</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>종목명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>매입가</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>현재가</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>보유수량</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>매매가능수량</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>수익률(%)</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="button_AccountSearch">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>75</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>조회</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="combo_AccountList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>163</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>20</y>
+       <width>56</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>계좌잔액</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="text_Account">
+     <property name="geometry">
+      <rect>
+       <x>364</x>
+       <y>20</y>
+       <width>171</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 255);</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>250</y>
+      <width>551</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>조건식</string>
+    </property>
+    <widget class="QTableWidget" name="table_RuleList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>180</y>
+       <width>531</width>
+       <height>131</height>
+      </rect>
+     </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>80</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>조건명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>옵션</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>중지</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QComboBox" name="combo_ConditionList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>163</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="button_RuleRegist">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>20</y>
+       <width>75</width>
+       <height>26</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>조회등록</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>매수조건 - 주문가격</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="combo_OrderRule">
+     <property name="geometry">
+      <rect>
+       <x>140</x>
+       <y>60</y>
+       <width>161</width>
+       <height>22</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>60</y>
+       <width>31</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>금액</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="combo_OrderPrice">
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>60</y>
+       <width>171</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <item>
+      <property name="text">
+       <string>10,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>20,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>30,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>40,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>50,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>60,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>70,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>80,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>90,000원</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>100,000원</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>531</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>예약매도</string>
+     </property>
+     <widget class="QCheckBox" name="check_Sell">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>매수후 예약매도</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>50</y>
+        <width>91</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>매수주문 수량의</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_BuyQty">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>50</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>10%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>30%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>40%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>60%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>70%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>80%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>90%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100%</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>50</y>
+        <width>41</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>수익률</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="combo_Ratio">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>50</y>
+        <width>121</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>1%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>3%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>4%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>6%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>7%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>8%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>9%</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10%</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>250</y>
+      <width>311</width>
+      <height>321</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>종목정보</string>
+    </property>
+    <widget class="QTableWidget" name="table_QuoteList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>291</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>68</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>매도잔량</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>매도호가</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>매수호가</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>매수잔량</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>36</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>종목명</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="text_ItemName">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>20</y>
+       <width>161</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 255);</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="text_ItemPrice">
+     <property name="geometry">
+      <rect>
+       <x>220</x>
+       <y>20</y>
+       <width>81</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>25</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(170, 255, 255);</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_6">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>10</y>
+      <width>401</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>종목리스트</string>
+    </property>
+    <widget class="QTableWidget" name="table_ItemList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>381</width>
+       <height>531</height>
+      </rect>
+     </property>
+     <property name="rowCount">
+      <number>0</number>
+     </property>
+     <attribute name="horizontalHeaderCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>85</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>시간</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>코드</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>종목명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>조건명</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>삭제</string>
+      </property>
+     </column>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>580</y>
+      <width>591</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>체결내역</string>
+    </property>
+    <widget class="QPlainTextEdit" name="contract_log">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>571</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_8">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>580</y>
+      <width>681</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>로그창</string>
+    </property>
+    <widget class="QPlainTextEdit" name="logview">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>661</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1300</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
